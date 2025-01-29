@@ -1,5 +1,3 @@
 # JS
 
-## 29.01.2025
-
--
+Tomer Dan's master repo for JS course.
