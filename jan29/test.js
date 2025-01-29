@@ -23,9 +23,9 @@ function printMetaTomer(){
     let isEmployed = true
     let hasCar = false
 
-    let tomerMetaDate = `${title} ${fName} ${lName}, Email: ${email}, Job: ${job}, Age: ${age}, Employed: ${isEmployed}, Has Car: ${hasCar}`
+    let tomerMetaData = `${title} ${fName} ${lName}, Email: ${email}, Job: ${job}, Age: ${age}, Employed: ${isEmployed}, Has Car: ${hasCar}`
 
-    console.log(tomerMetaDate)
+    console.log(tomerMetaData)
 }
 printMetaTomer()
 
