@@ -36,7 +36,7 @@ function promptTest(){
     let carColor = prompt("Please enter the car color:");
     let carModel = prompt("Please enter the car model:");
 
-    if(carType==="mazda"&&carColor==="red"&&carModel==="cx5")
+    if(carType.toLowerCase==="mazda"&&carColor.toLowerCase==="red"&&carModel.toLowerCase==="cx5")
         console.log("Yes i found my dream car!")
     else
         console.log("I don't like this car.");
