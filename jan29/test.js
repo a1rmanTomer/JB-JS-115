@@ -29,4 +29,19 @@ function printMetaTomer(){
 }
 printMetaTomer()
 
+
+// ex-3
+function promptTest(){
+    let carType = prompt("Please enter the car type:");
+    let carColor = prompt("Please enter the car color:");
+    let carModel = prompt("Please enter the car model:");
+
+    if(carType==="mazda"&&carColor==="red"&&carModel==="cx5")
+        console.log("Yes i found my dream car!")
+    else
+        console.log("I don't like this car.");
+        
+}
+promptTest()
+
 console.log("Js finished running.")
