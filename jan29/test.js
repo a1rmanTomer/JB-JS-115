@@ -7,4 +7,12 @@ function printTomer(){
 
 printTomer()
 
+
+let fName = "Tomer"
+let lName = "Dan"
+let fullName = `${new Date().toISOString()} ${">"} ${fName} ${lName} ${"has used TOKEN:"} ${Math.ceil(Math.random()*9674856798789)}`
+
+console.log(fullName)
+
+
 console.log("Js finished running.")
