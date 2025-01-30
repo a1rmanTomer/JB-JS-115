@@ -83,7 +83,20 @@ function p27ex3(){
     }
 }
 
+// p27ex5
+function p27ex5(){
+    let sum = 0
 
+    let num = +prompt("insert a number:")
+
+    while(num!=-99){
+        if(num>0)
+            sum+=num
+        num = +prompt("insert a number:")
+    }
+
+    console.log(`the sum af the numbers is: ${sum}`);
+}
 
 
 
