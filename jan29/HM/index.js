@@ -118,7 +118,20 @@ function p27ex6(){
     console.log(`The avg is: ${avg}`);
 }
 
+// p27ex7
+function p27ex7(){
+    let max = 0 
 
+    let num = +prompt("Insert a number:")
+
+    while(num>0){
+        if(num>max)
+            max = num
+        num = +prompt("Insert a number:")
+    }
+
+    console.log(`The biggest number was: ${max}`);
+}
 
 
 
