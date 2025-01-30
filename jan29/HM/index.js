@@ -98,7 +98,25 @@ function p27ex5(){
     console.log(`the sum af the numbers is: ${sum}`);
 }
 
+// p27ex6
+function p27ex6(){
+    let count = 0
+    let sum = 0
 
+    let num = +prompt("Insert a number:")
+
+    while(num!=0){
+        count++
+        sum+=num
+
+        num = +prompt("Insert a number:")
+    }
+
+    let avg = sum/count
+    avg = avg.toFixed(2)
+
+    console.log(`The avg is: ${avg}`);
+}
 
 
 
