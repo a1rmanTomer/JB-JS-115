@@ -133,6 +133,25 @@ function p27ex7(){
     console.log(`The biggest number was: ${max}`);
 }
 
+// ex4
+function ex4(){
+    let pName = [4]
+    let pPrice = [4]
+    let maxPriceIndex = 0
+    let actualMaxPrice = 0
+
+    for(let i = 0 ; i<5 ; i++){
+        pName[i] = prompt("Enter a product name:")
+        pPrice[i] = +prompt("Enter its price:")
+
+        if(pPrice[i]>actualMaxPrice){
+            maxPriceIndex = i
+            actualMaxPrice = pPrice[i]
+        }
+    }
+    console.log(`The most expensive item was: ${pName[maxPriceIndex]}(procuct ${maxPriceIndex}), with a price of: ${pPrice[maxPriceIndex]}`);
+}
+
 
 
 
