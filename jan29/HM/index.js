@@ -149,7 +149,7 @@ function ex4(){
             actualMaxPrice = pPrice[i]
         }
     }
-    console.log(`The most expensive item was: ${pName[maxPriceIndex]}(procuct ${maxPriceIndex}), with a price of: ${pPrice[maxPriceIndex]}`);
+    console.log(`The most expensive item was: ${pName[maxPriceIndex]}(product ${maxPriceIndex}), with a price of: ${pPrice[maxPriceIndex]}`);
 }
 
 
