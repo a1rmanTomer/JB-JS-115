@@ -152,7 +152,6 @@ function ex4(){
         }
     }
     else{
-        pPrice[i] = 1
         throw new error (`Product ${pName[i]}'s price is invalid. price was set to 1.`)
     }
 
