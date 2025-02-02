@@ -35,6 +35,41 @@ function p27ex9(){
     
 }
 
+function p28ex12(){
+    let sum = 0 
+    let num = +prompt("insert a number:")
+
+    let numStr = num.toString()
+
+    let i = 0
+
+    while(i<numStr.length){
+        sum+=Number(numStr.charAt(i))
+        i++
+    }
+    console.log(`The sum is: ${sum}`);
+    
+}
+
+function p28ex13(){
+    let sum = 0
+
+    let x = +prompt("insert a number:")
+    let dig = +prompt("insert a single-digit number:")
+
+    x = x.toString()
+
+    for(let i = 0 ; i < x.length ; i++){
+        if(Number(x.charAt(i)) === dig)
+            sum++
+    }
+
+    console.log(`The digit is present ${sum} times`);
+}
+
+
+
+
 
 
 
