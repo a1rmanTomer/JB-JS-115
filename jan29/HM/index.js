@@ -140,15 +140,22 @@ function ex4(){
     let maxPriceIndex = 0
     let actualMaxPrice = 0
 
-    for(let i = 0 ; i<5 ; i++){
-        pName[i] = prompt("Enter a product name:")
-        pPrice[i] = +prompt("Enter its price:")
-
-        if(pPrice[i]>actualMaxPrice){
-            maxPriceIndex = i
-            actualMaxPrice = pPrice[i]
+    if(!isNaN(pPrice[i]) && pPrice[i] > 0){
+        for(let i = 0 ; i<5 ; i++){
+            pName[i] = prompt("Enter a product name:")
+            pPrice[i] = +prompt("Enter its price:")
+    
+            if(pPrice[i]>actualMaxPrice){
+                maxPriceIndex = i
+                actualMaxPrice = pPrice[i]
+            }
         }
     }
+    else{
+        pPrice[i] = 1
+        throw new error (`Product ${pName[i]}'s price is invalid. price was set to 1.`)
+    }
+
     console.log(`The most expensive item was: ${pName[maxPriceIndex]}(product ${maxPriceIndex}), with a price of: ${pPrice[maxPriceIndex]}`);
 }
 
