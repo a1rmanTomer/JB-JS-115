@@ -67,6 +67,17 @@ function p28ex13(){
     console.log(`The digit is present ${sum} times`);
 }
 
+function p28ex14(){
+    let num = +prompt("Insert a number:")
+
+    num = num.toString()
+
+    let newNum = num.split('').reverse().join('');
+
+    console.log(newNum);
+    
+}
+
 
 
 
