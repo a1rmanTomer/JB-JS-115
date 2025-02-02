@@ -78,6 +78,11 @@ function p28ex14(){
     
 }
 
+function galStringFunc(str){
+    return str.length > 10 ? "Too long" : `Valid String => ${str.length} chars`;
+}
+
+
 
 
 
