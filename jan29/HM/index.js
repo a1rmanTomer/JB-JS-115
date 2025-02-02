@@ -156,6 +156,7 @@ function ex4(){
         throw new error (`Product ${pName[i]}'s price is invalid. price was set to 1.`)
     }
 
+    
     console.log(`The most expensive item was: ${pName[maxPriceIndex]}(product ${maxPriceIndex}), with a price of: ${pPrice[maxPriceIndex]}`);
 }
 
