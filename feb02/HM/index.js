@@ -27,6 +27,22 @@ function p29ex27(x,y){
     }
 }
 
+// p29ex28
+let julyTemp2000 = [29]
+let julyTemp2001 = [29]
+
+function julyAvg2000(arr){
+    if (!Array.isArray(arr)) return;
+
+    let sum = 0
+
+    for(let i = 0 ; i<julyTemp2000.length ; i++){
+        sum+=julyTemp2000[i]
+    }
+
+    return sum/30
+}
+
 
 
 
