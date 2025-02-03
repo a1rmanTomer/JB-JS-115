@@ -7,18 +7,25 @@ function p28ex14(num){
 }
 
 function p29ex26(x,y){
-    if (x <= y) {
-        for (let i = x; i <= y; i++) {
-            console.log(i);
-        }
-    } else {
-        for (let i = x; i >= y; i--) {
-            console.log(i);
-        }
+    let min = Math.min(x, y);
+    let max = Math.max(x, y);
+
+    for (let i = min; i <= max; i++) {
+        console.log(i);
     }
 }
 
+function p29ex27(x,y){
+    let min = Math.min(x, y);
+    let max = Math.max(x, y);
 
+    for (let i = min; i <= max; i++) {
+        console.log(i);
+    }
+    for (let i = max - 1; i >= min; i--) {
+        console.log(i);
+    }
+}
 
 
 
