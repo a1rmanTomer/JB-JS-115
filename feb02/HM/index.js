@@ -31,8 +31,12 @@ function p29ex27(x,y){
 let julyTemp2000 = [29]
 let julyTemp2001 = [29]
 
+let july2000Average
+
+// TODO: make sure return is good
 function julyAvg2000(arr){
-    if (!Array.isArray(arr)) return;
+    if (!Array.isArray(arr))
+        return;
 
     let sum = 0
 
@@ -40,8 +44,22 @@ function julyAvg2000(arr){
         sum+=julyTemp2000[i]
     }
 
-    return sum/30
+    julyAvg2000 =  sum/julyTemp2000.length
 }
+
+// TODO: make sure prev func works and this one returns
+function higherThen2000Avg(arr){
+    if (!Array.isArray(arr))
+        return
+
+    for (let i = 0 ; i< julyTemp2001 ; i++){
+        if(julyTemp2001[i]>july2000Average)
+            console.log(julyTemp2001[i]);
+    }
+}
+
+
+
 
 
 
