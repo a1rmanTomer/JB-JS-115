@@ -40,7 +40,7 @@ for (let i = 0; i < 31; i++) {
 
 let july2000Average;
 
-// TODO: make sure return is good
+// TODO: make sure return is good - done
 function julyAvg2000(arr){
     if (!Array.isArray(arr))
         return;
@@ -54,7 +54,7 @@ function julyAvg2000(arr){
     return sum/arr.length;
 }
 
-// TODO: make sure prev func works and this one returns
+// TODO: make sure prev func works and this one returns - done
 function higherThen2000Avg(j2000,j2001){
     if (!Array.isArray(j2000) && !Array.isArray(j2001))
         return;
