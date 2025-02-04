@@ -34,7 +34,7 @@ let julyTemp2001 = [29]
 let july2000Average
 
 // TODO: make sure return is good
-function julyAvg2000(arr){
+function julyAvg2000(j2000){
     if (!Array.isArray(arr))
         return;
 
@@ -48,11 +48,13 @@ function julyAvg2000(arr){
 }
 
 // TODO: make sure prev func works and this one returns
-function higherThen2000Avg(arr){
-    if (!Array.isArray(arr))
+function higherThen2000Avg(j2000,j2001){
+    if (!Array.isArray(j2000) && !Array.isArray(j2001))
         return
 
-    for (let i = 0 ; i< julyTemp2001 ; i++){
+    julyAvg2000(j2000)
+
+    for (let i = 0 ; i< julyTemp2001.length ; i++){
         if(julyTemp2001[i]>july2000Average)
             console.log(julyTemp2001[i]);
     }
