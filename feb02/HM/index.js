@@ -27,36 +27,46 @@ function p29ex27(x,y){
     }
 }
 
+
 // p29ex28
 let julyTemp2000 = [29]
 let julyTemp2001 = [29]
 
-let july2000Average
+// dec for array tests
+for (let i = 0; i < 31; i++) {
+    julyTemp2000.push(Math.floor(Math.random() * (44 - 27 + 1)) + 27);
+    julyTemp2001.push(Math.floor(Math.random() * (44 - 27 + 1)) + 27);
+}
+
+let july2000Average;
 
 // TODO: make sure return is good
-function julyAvg2000(j2000){
+function julyAvg2000(arr){
     if (!Array.isArray(arr))
         return;
 
-    let sum = 0
+    let sum = 0;
 
-    for(let i = 0 ; i<julyTemp2000.length ; i++){
-        sum+=julyTemp2000[i]
+    for(let i = 0 ; i<arr.length ; i++){
+        sum+=arr[i];
     }
 
-    julyAvg2000 =  sum/julyTemp2000.length
+    return sum/arr.length;
 }
 
 // TODO: make sure prev func works and this one returns
 function higherThen2000Avg(j2000,j2001){
     if (!Array.isArray(j2000) && !Array.isArray(j2001))
-        return
+        return;
 
-    julyAvg2000(j2000)
+    let avg2000 = julyAvg2000(j2000);
 
-    for (let i = 0 ; i< julyTemp2001.length ; i++){
-        if(julyTemp2001[i]>july2000Average)
-            console.log(julyTemp2001[i]);
+    console.log(`July 2000" AVG temp day was: ${avg2000}\njuly 2001" days with higher temp were:`);
+    
+
+    for (let i = 0 ; i< j2001.length ; i++){
+        if(j2001[i]>avg2000)
+            console.log(`July ${i+1}, with a temp of: ${j2001[i]}`);
     }
 }
 
