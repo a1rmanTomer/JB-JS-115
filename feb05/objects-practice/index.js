@@ -29,7 +29,7 @@ printCar(myCar.color)
 
 // func to add KM
 function addKm(kmToAdd){
-    myCar.km += kmToAdd
+    myCar?.km += kmToAdd
 }
 
 // EX2
@@ -42,7 +42,7 @@ function pDetails(id, price, name){
     if (typeof price !== 'number')
         price = Number(price)
 
-    let currentTime = new Date().toString();
+    let currentTime = new Date().toString()
 
     let myObj = {
         pId: id,
