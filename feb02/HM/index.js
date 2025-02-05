@@ -32,13 +32,16 @@ function p29ex27(x,y){
 let julyTemp2000 = [29]
 let julyTemp2001 = [29]
 
-// dec for array tests
-for (let i = 0; i < 31; i++) {
-    julyTemp2000.push(Math.floor(Math.random() * (44 - 27 + 1)) + 27);
-    julyTemp2001.push(Math.floor(Math.random() * (44 - 27 + 1)) + 27);
+// random numbers
+function randomNumbers(min, max){
+    return (Math.floor(Math.random() * (max-min) + min))
 }
 
-let july2000Average;
+// dec for array tests
+for (let i = 0; i < 31; i++) {
+    julyTemp2000.push(randomNumbers(36,45));
+    julyTemp2001.push(randomNumbers(31,44));
+}
 
 // finding array avg
 function findArrAvg(arr){
@@ -51,7 +54,9 @@ function findArrAvg(arr){
         sum+=arr[i];
     }
 
-    return sum/arr.length;
+    let avg = (sum/arr.length).toFixed(1)
+
+    return avg;
 }
 
 // calling prev func then comparing every item in the 2nd array
@@ -59,13 +64,13 @@ function higherThen2000Avg(j2000,j2001){
     if (!Array.isArray(j2000) && !Array.isArray(j2001))
         return;
 
-    let avg2000 = findArrAvg(j2000);
+    let prevArrAvg = findArrAvg(j2000);
 
-    console.log(`July 2000" AVG temp day was: ${avg2000}\njuly 2001" days with higher temp were:`);
+    console.log(`July 2000" AVG temp day was: ${prevArrAvg}\njuly 2001" days with higher temp were:`);
     
 
     for (let i = 0 ; i< j2001.length ; i++){
-        if(j2001[i]>avg2000)
+        if(j2001[i]>prevArrAvg)
             console.log(`July ${i+1}, with a temp of: ${j2001[i]}`);
     }
 }
