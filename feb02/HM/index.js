@@ -16,6 +16,10 @@ function p29ex26(x,y){
 }
 
 function p29ex27(x,y){
+
+    if(typeof x !== 'number' || typeof y !== 'number')
+        throw new Error("Numbers invalid!");
+
     let min = Math.min(x, y);
     let max = Math.max(x, y);
 
