@@ -38,7 +38,7 @@ function randomNumbers(min, max){
 }
 
 // dec for array tests
-for (let i = 0; i < 31; i++) {
+for (let i = 0; i < 30; i++) {
     julyTemp2000.push(randomNumbers(35,45));
     julyTemp2001.push(randomNumbers(31,44));
 }
