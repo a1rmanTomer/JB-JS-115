@@ -63,7 +63,7 @@ function findArrAvg(arr){
 }
 
 // calling prev func then comparing every item in the 2nd array
-function higherThen2000Avg(j2000,j2001){
+function higherThenPrevArr(j2000,j2001){
     if (!Array.isArray(j2000) && !Array.isArray(j2001))
         return;
 
@@ -71,7 +71,6 @@ function higherThen2000Avg(j2000,j2001){
 
     console.log(`July 2000" AVG temp day was: ${prevArrAvg}\njuly 2001" days with higher temp were:`);
     
-
     for (let i = 0 ; i< j2001.length ; i++){
         if(j2001[i]>prevArrAvg)
             console.log(`July ${i+1}, with a temp of: ${j2001[i]}`);
