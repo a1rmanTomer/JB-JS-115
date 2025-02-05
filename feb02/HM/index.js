@@ -40,8 +40,8 @@ for (let i = 0; i < 31; i++) {
 
 let july2000Average;
 
-// TODO: make sure return is good - done
-function julyAvg2000(arr){
+// finding array avg
+function findArrAvg(arr){
     if (!Array.isArray(arr))
         return;
 
@@ -54,12 +54,12 @@ function julyAvg2000(arr){
     return sum/arr.length;
 }
 
-// TODO: make sure prev func works and this one returns - done
+// calling prev func then comparing every item in the 2nd array
 function higherThen2000Avg(j2000,j2001){
     if (!Array.isArray(j2000) && !Array.isArray(j2001))
         return;
 
-    let avg2000 = julyAvg2000(j2000);
+    let avg2000 = findArrAvg(j2000);
 
     console.log(`July 2000" AVG temp day was: ${avg2000}\njuly 2001" days with higher temp were:`);
     
