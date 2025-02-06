@@ -4,7 +4,6 @@ console.log("Script start");
 
 // 1
 function filterCarsByOriginAndMpg(arr, origin, mpg){
-
     // validation
     if (!Array.isArray(arr)) {
         console.error("First argument must be an array");
@@ -19,13 +18,13 @@ function filterCarsByOriginAndMpg(arr, origin, mpg){
         return;
     }
 
+    // filtering
     const filteredCars = [];
     for(let i = 0 ; i < arr.length ; i++){
         if (arr[i].Origin === origin && arr[i].Miles_per_Gallon === mpg)
             filteredCars.push(arr[i]);
     }
     return filteredCars;
-
 }
 
 
