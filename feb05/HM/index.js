@@ -19,7 +19,7 @@ function filterCarsByOriginAndMpg(arr, origin, mpg){
     }
 
     // filtering
-    const filteredCars = [];
+    const filteredCars = []
     for(let i = 0 ; i < arr.length ; i++){
         if (arr[i].Origin === origin && arr[i].Miles_per_Gallon === mpg)
             filteredCars.push(arr[i]);
@@ -51,7 +51,32 @@ function findAvgHp(arr){
     return avgHp
 }
 
+// 3
+function exactMatchFilter(arr, key, value){
+    // input validation
+    if (!Array.isArray(arr)) {
+        console.error("First argument must be an array");
+        return;
+    }
+    if (typeof key !== 'string') {
+        console.error("Second argument must be a string");
+        return;
+    }
+    if (value === undefined) {
+        console.error("Third argument must be defined");
+        return;
+    }
 
+    // filter
+    const filteredCars = []
+    for (let i = 0 ; i < arr.length ; i++){
+        if (arr[i][key] === value){
+            filteredCars.push(arr[i])
+        }
+    }
+
+    return filteredCars
+}
 
 
 
