@@ -29,7 +29,7 @@ printCar(myCar.color)
 
 // func to add KM
 function addKm(kmToAdd){
-    myCar?.km += kmToAdd
+    myCar.km += kmToAdd
 }
 
 // EX2
