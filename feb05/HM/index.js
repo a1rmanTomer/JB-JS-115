@@ -27,6 +27,34 @@ function filterCarsByOriginAndMpg(arr, origin, mpg){
     return filteredCars;
 }
 
+// 2
+function findAvgHp(arr){
+    // validation
+    if (!Array.isArray(arr)) {
+        console.error("Argument must be an array");
+        return;
+    }
+    if (arr.length === 0) {
+        console.error("Array must not be empty");
+        return;
+    }
+
+    // calc
+    let sum = 0
+    for(let i = 0 ; i < arr.length ; i++){
+        if(arr[i].Horsepower)
+            sum+=arr[i].Horsepower
+    }
+
+    const avgHp = Math.floor(sum / arr.length)
+
+    return avgHp
+}
+
+
+
+
+
 
 
 
