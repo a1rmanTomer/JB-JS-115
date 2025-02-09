@@ -62,17 +62,18 @@ function exactMatchFilter(arr, key, value){
         console.error("Second argument must be a string");
         return;
     }
-    if (value === undefined) {
-        console.error("Third argument must be defined");
-        return;
-    }
 
     // filter
     const filteredCars = []
-    for (let i = 0 ; i < arr.length ; i++){
-        if (arr[i][key] === value){
-            filteredCars.push(arr[i])
+    if (value !== undefined){
+        for (let i = 0 ; i < arr.length ; i++){
+            if (arr[i][key] === value){
+                filteredCars.push(arr[i])
+            }
         }
+    }
+    else{
+        console.error("Third argument must be is undefined for current car.");
     }
 
     return filteredCars
