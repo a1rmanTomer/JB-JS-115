@@ -13,7 +13,7 @@ function displayProducts() {
         <div class="card h-100">
           <img src="${product.thumbnail}" class="card-img-top" alt="${product.title}">
           <div class="card-body">
-            <h5 class="card-title">${product.title}</h5>
+            <h5 class="card-title">[${product.id}] ${product.title}</h5>
             <p class="card-text">${product.description}</p>
             <p class="card-text"><strong>Price:</strong> ${product.price}₪</p>
           </div>
