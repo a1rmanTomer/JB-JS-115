@@ -73,5 +73,47 @@ function add3Rows(){
     }
 }
 
+function clearTable() {
+    document.getElementById("table-cars-headers").innerHTML = ""
+}
 
-console.log("Script end");
+// fill table
+function loadTable() {
+    clearTable()
+    const firstElement = carsForRental[0]
+    const fields = Object.keys(firstElement)
+    console.log(firstElement)
+    console.log(fields)
+    const theadTr = document.getElementById("table-cars-headers")
+    if (theadTr) {
+        for (let index = 0; index < fields.length; index++) {
+            const th = document.createElement("th")
+            th.innerText = fields[index].replaceAll("_", " ")
+            theadTr.append(th)
+        }
+    }
+    const tBody = document.getElementById("table-cars-body")
+    if (tBody) {
+        for (let index = 0; index < carsForRental.length; index++) {
+            const currentCar = carsForRental[index];
+            const tr = document.createElement("tr")
+
+            const tdName = document.createElement("td")
+            tdName.innerText = currentCar.Name
+
+// unfinished
+            
+
+            tr.append(tdName, tdMPG, tdCyl, toDis)
+            tBody.append(tr)
+        }
+    }
+
+}
+
+
+
+
+
+
+console.log("Script end")
