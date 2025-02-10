@@ -7,7 +7,7 @@ function displayProducts() {
   for (let i = 0; i < products.length; i++) {
     const product = products[i];
     const card = document.createElement("div");
-    card.className = "col-3 mt-2";
+    card.className = "col-12 col-lg-3 mt-2";
 
     card.innerHTML = `
         <div class="card h-100">
