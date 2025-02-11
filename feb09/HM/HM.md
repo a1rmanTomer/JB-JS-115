@@ -11,6 +11,6 @@
 
 4. Create new application which drawing the following data set as cards:
    Note that the products array exist inside the following path `products.products`
-   feel free to change it, so it will be only `products` when acccessing the array
+   feel free to change it, so it will be only `products` when accessing the array
 
 - in a card view, show the product id, title, image, description and price.
