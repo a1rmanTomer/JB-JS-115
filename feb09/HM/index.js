@@ -1,6 +1,6 @@
 console.log("Script start");
 
-// clear all
+// clear all data
 function clearAll() {
   const container = document.getElementById("master-container");
 
