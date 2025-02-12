@@ -95,15 +95,15 @@ function displayProducts() {
     card.className = "col-12 col-lg-3 mt-2";
 
     card.innerHTML = `
-                                <div class="card h-100">
-                                        <img src="${product.thumbnail}" class="card-img-top" alt="${product.title}">
-                                        <div class="card-body">
-                                                <h5 class="card-title">[${product.id}] ${product.title}</h5>
-                                                <p class="card-text">${product.description}</p>
-                                                <p class="card-text"><strong>Price:</strong> ${product.price}₪</p>
-                                        </div>
-                                </div>
-                        `;
+                      <div class="card h-100">
+                              <img src="${product.thumbnail}" class="card-img-top" alt="${product.title}">
+                              <div class="card-body">
+                                      <h5 class="card-title">[${product.id}] ${product.title}</h5>
+                                      <p class="card-text">${product.description}</p>
+                                      <p class="card-text"><strong>Price:</strong> ${product.price}₪</p>
+                              </div>
+                      </div>
+                      `;
 
     row.appendChild(card);
   }
