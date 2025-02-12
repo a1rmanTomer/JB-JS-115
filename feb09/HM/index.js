@@ -8,23 +8,25 @@ function displayRentalCars() {
   let row;
 
   for (let i = 0; i < carsForRental.length; i++) {
-    if (i % 4 == 0) {
+    if (i % 4 === 0) {
       row = document.createElement("div");
       row.className = "row mt-2";
       container.appendChild(row);
     }
 
-    const rentalCar = carsForRental[i];
+    const car = carsForRental[i];
     const card = document.createElement("div");
+    card.className = "col-12 col-lg-3 mt-2";
+
     card.innerHTML = `
-                <div class="card h-100">
+                  <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="car-title">${rentalCar.Name}</h5>
-                        <p class="car-HP"><strong>HP:</strong> ${rentalCar.Horsepower}</p>
-                        <p class="car-mpg"><strong>MPG:</strong> ${rentalCar.Miles_per_Gallon}₪</p>
+                        <h5 class="car-title">${car.Name}</h5>
+                        <p class="car-HP"><strong>HP:</strong> ${car.Horsepower}</p>
+                        <p class="car-mpg"><strong>MPG:</strong> ${car.Miles_per_Gallon}₪</p>
                     </div>
                 </div>
-    `;
+              `;
 
     row.appendChild(card);
   }
