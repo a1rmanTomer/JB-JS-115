@@ -17,6 +17,16 @@ saleButton.addEventListener("click", function () {
   drawCars(carsForSale);
 });
 
+const allCarsButton = document.getElementById("allCarsButton");
+allCarsButton.addEventListener("click", function () {
+  displayAllCars(carsForSale, carsForRental);
+});
+
+const allProductsButton = document.getElementById("loadProductsButton");
+allProductsButton.addEventListener("click", function () {
+  displayProducts(products);
+});
+
 // all of 1.1-1.3 functions:
 // get card element - cars
 function getCarCard(element) {
@@ -58,8 +68,8 @@ function getProductCard(element) {
 function drawCars(carArr) {
   clearAll();
 
-  if (!Array.isArray(carArr)) return;
-  if (carArr.length === 0) return;
+  if (!Array.isArray(carArr)) throw new Error("products is not a valid array");
+  if (carArr.length === 0) throw new Error("given array is empty");
 
   const container = document.getElementById("master-container");
   container.className = "container mt-2";
@@ -86,7 +96,54 @@ function drawCars(carArr) {
 function displayAllCars(arr1, arr2) {
   const newArray = [...arr1, ...arr2];
 
+  if (!Array.isArray(newArray))
+    throw new Error("products is not a valid array");
+  if (newArray.length === 0) throw new Error("given array is empty");
+
   drawCars(newArray);
 }
+
+// draw the products:
+function displayProducts(arr) {
+  if (!Array.isArray(arr)) throw new Error("products is not a valid array");
+  if (arr.length === 0) throw new Error("given array is empty");
+
+  const container = document.getElementById("master-container");
+  container.className = "container mt-2";
+
+  let row;
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 4 == 0) {
+      row = document.createElement("div");
+      row.className = "row mt-2";
+      container.appendChild(row);
+    }
+
+    const product = arr[i];
+
+    const card = document.createElement("div");
+    card.className = "col-12 col-lg-3 mt-2";
+    card.innerHTML = getProductCard(product);
+
+    row.appendChild(card);
+  }
+}
+
+// // filter by search (1)
+// let searchInput = document.getElementById("searchInput");
+// let lowerSearchInput = searchInput.toLowerCase();
+
+// function filteredProducts(productsArray, searchText) {
+//   const newProductsArray = [];
+
+//   for (let i = 0; i < productsArray.length; i++) {
+//     const filProduct = productsArray[i];
+//     const title = filProduct.title;
+//     const lowerTitle = title.toLowerCase();
+//     if (lowerTitle.includes(searchText)) {
+//       newProductsArray.push(filProduct);
+//     }
+//   }
+// }
 
 console.log("Script end");
