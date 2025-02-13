@@ -6,110 +6,80 @@ function clearAll() {
   container.innerHTML = ``;
 }
 
-// 1.1
-function displayRentalCars() {
+// event listeners for buttons:
+const rentButton = document.getElementById("rentalCarsButton");
+rentButton.addEventListener("click", function () {
+  drawCars(carsForRental);
+});
+
+const saleButton = document.getElementById("saleCarsButton");
+saleButton.addEventListener("click", function () {
+  drawCars(carsForSale);
+});
+
+// all of 1.1-1.3 functions:
+// get card element - cars
+function getCarCard(element) {
+  const name = element.Name;
+  const horsePower = element.Horsepower;
+  const mpg = element.Miles_per_Gallon;
+
+  return `
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="car-title">${name}</h5>
+          <p class="car-HP"><strong>HP:</strong> ${horsePower}</p>
+          <p class="car-mpg"><strong>MPG:</strong> ${mpg}</p>
+        </div>
+      </div>
+    `;
+}
+
+// get card element - products
+function getProductCard(element) {
+  const name = element.title;
+  const description = element.description;
+  const price = element.price;
+  const pic = element.thumbnail;
+
+  return `
+    <div class="card h-100">
+      <img src="${pic}" class="card-img-top" alt="${name}">
+      <div class="card-body">
+        <h5 class="card-title">${name}</h5>
+        <p class="card-text">${description}</p>
+        <p class="card-text"><strong>Price:</strong> ${price}₪</p>
+      </div>
+    </div>
+  `;
+}
+
+// draw the cars cards from given array
+function drawCars(carArr) {
+  clearAll();
+
+  if (!Array.isArray(carArr)) return;
+  if (carArr.length === 0) return;
+
   const container = document.getElementById("master-container");
   container.className = "container mt-2";
 
   let row;
-
-  for (let i = 0; i < carsForRental.length; i++) {
-    if (i % 4 === 0) {
+  for (let i = 0; i < carArr.length; i++) {
+    if (i % 4 == 0) {
       row = document.createElement("div");
       row.className = "row mt-2";
       container.appendChild(row);
     }
 
-    const car = carsForRental[i];
+    const car = carArr[i];
+
     const card = document.createElement("div");
     card.className = "col-12 col-lg-3 mt-2";
-
-    card.innerHTML = `
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="car-title">${car.Name}</h5>
-          <p class="car-HP"><strong>HP:</strong> ${car.Horsepower}</p>
-          <p class="car-mpg"><strong>MPG:</strong> ${car.Miles_per_Gallon}</p>
-        </div>
-      </div>
-    `;
+    card.innerHTML = getCarCard(car);
 
     row.appendChild(card);
   }
 }
-
-// 1.2
-function displayCarsForSale() {
-  const container = document.getElementById("master-container");
-  container.className = "container mt-2";
-
-  let row;
-
-  for (let i = 0; i < carsForSale.length; i++) {
-    if (i % 4 === 0) {
-      row = document.createElement("div");
-      row.className = "row mt-2";
-      container.appendChild(row);
-    }
-
-    const car = carsForSale[i];
-    const card = document.createElement("div");
-    card.className = "col-12 col-lg-3 mt-2";
-
-    card.innerHTML = `
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="car-title">${car.Name}</h5>
-          <p class="car-HP"><strong>HP:</strong> ${car.Horsepower}</p>
-          <p class="car-mpg"><strong>MPG:</strong> ${car.Miles_per_Gallon}</p>
-        </div>
-      </div>
-    `;
-
-    row.appendChild(card);
-  }
-}
-
-// 1.3
-function displayAllCars() {
-  displayRentalCars();
-  displayCarsForSale();
-}
-
-// 4
-function displayProducts() {
-  const container = document.getElementById("master-container");
-  container.className = "container mt-2";
-
-  let row;
-
-  for (let i = 0; i < products.length; i++) {
-    if (i % 4 === 0) {
-      row = document.createElement("div");
-      row.className = "row mt-2";
-      container.appendChild(row);
-    }
-
-    const product = products[i];
-    const card = document.createElement("div");
-    card.className = "col-12 col-lg-3 mt-2";
-
-    card.innerHTML = `
-      <div class="card h-100">
-        <img src="${product.thumbnail}" class="card-img-top" alt="${product.title}">
-        <div class="card-body">
-          <h5 class="card-title">[${product.id}] ${product.title}</h5>
-          <p class="card-text">${product.description}</p>
-          <p class="card-text"><strong>Price:</strong> ${product.price}₪</p>
-        </div>
-      </div>
-    `;
-
-    row.appendChild(card);
-  }
-}
-
-// search with name
-function searchByName() {}
 
 console.log("Script end");
