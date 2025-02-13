@@ -82,4 +82,11 @@ function drawCars(carArr) {
   }
 }
 
+// display both car arrays
+function displayAllCars(arr1, arr2) {
+  const newArray = [...arr1, ...arr2];
+
+  drawCars(newArray);
+}
+
 console.log("Script end");
