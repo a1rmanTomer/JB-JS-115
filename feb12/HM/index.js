@@ -27,6 +27,12 @@ allProductsButton.addEventListener("click", function () {
   displayProducts(products);
 });
 
+const productSearchBox = document.getElementById("productSearch");
+productSearchBox.addEventListener("keyup", function () {
+  const searchTerm = productSearchBox.value.toLowerCase();
+  filterProducts(searchTerm);
+});
+
 // all of 1.1-1.3 functions:
 // get card element - cars
 function getCarCard(element) {
@@ -129,21 +135,22 @@ function displayProducts(arr) {
   }
 }
 
-// // filter by search (1)
-// let searchInput = document.getElementById("searchInput");
-// let lowerSearchInput = searchInput.toLowerCase();
+// // filter by search
+function filterProducts(searchTerm) {
+  clearAll();
 
-// function filteredProducts(productsArray, searchText) {
-//   const newProductsArray = [];
+  const filteredProducts = [];
 
-//   for (let i = 0; i < productsArray.length; i++) {
-//     const filProduct = productsArray[i];
-//     const title = filProduct.title;
-//     const lowerTitle = title.toLowerCase();
-//     if (lowerTitle.includes(searchText)) {
-//       newProductsArray.push(filProduct);
-//     }
-//   }
-// }
+  for (let i = 0; i < products.length; i++) {
+    const product = products[i];
+    const productTitle = product.title.toLowerCase();
+
+    if (productTitle.includes(searchTerm)) {
+      filteredProducts.push(product);
+    }
+  }
+
+  displayProducts(filteredProducts);
+}
 
 console.log("Script end");
