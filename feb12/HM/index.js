@@ -33,6 +33,12 @@ productSearchBox.addEventListener("keyup", function () {
   filterProducts(searchTerm);
 });
 
+const carSearchBox = document.getElementById("carSearch");
+carSearchBox.addEventListener("keyup", function () {
+  const searchTerm = carSearchBox.value.toLowerCase();
+  filterCars(searchTerm);
+});
+
 // all of 1.1-1.3 functions:
 // get card element - cars
 function getCarCard(element) {
@@ -135,7 +141,7 @@ function displayProducts(arr) {
   }
 }
 
-// // filter by search
+//filter products by name
 function filterProducts(searchTerm) {
   clearAll();
 
@@ -151,6 +157,26 @@ function filterProducts(searchTerm) {
   }
 
   displayProducts(filteredProducts);
+}
+
+//filter cars by name
+function filterCars(searchTerm) {
+  clearAll();
+
+  joinedCars = [...carsForRental, ...carsForSale];
+
+  const filteredCars = [];
+
+  for (let i = 0; i < joinedCars.length; i++) {
+    const car = joinedCars[i];
+    const carName = car.Name.toLowerCase();
+
+    if (carName.includes(searchTerm)) {
+      filteredCars.push(car);
+    }
+  }
+
+  drawCars(filteredCars);
 }
 
 console.log("Script end");
