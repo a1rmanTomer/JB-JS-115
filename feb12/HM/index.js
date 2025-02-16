@@ -162,9 +162,9 @@ function filterProducts(searchTerm) {
 // get the value:
 function getSelectedRadioValue(name) {
   const radios = document.querySelectorAll(`input[name="${name}"]`);
-  for (const radio of radios) {
-    if (radio.checked) {
-      return radio.value;
+  for (let i = 0; i < radios.length; i++) {
+    if (radios[i].checked) {
+      return radios[i].value;
     }
   }
   return null;
