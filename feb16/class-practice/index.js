@@ -194,7 +194,6 @@ function filterProducts(searchTerm) {
 
 //filter cars by values
 // get the value:
-
 function loadPrevRadio() {
   const localStorageSelectedRadio = localStorage.getItem("checkedRadio");
   if (localStorageSelectedRadio) {
