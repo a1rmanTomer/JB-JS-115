@@ -81,7 +81,6 @@ function drawCars(carArr) {
   clearAll();
 
   if (!Array.isArray(carArr)) throw new Error("products is not a valid array");
-  if (carArr.length === 0) throw new Error("given array is empty");
 
   const container = document.getElementById("master-container");
   container.className = "container mt-2";
@@ -159,22 +158,37 @@ function filterProducts(searchTerm) {
   displayProducts(filteredProducts);
 }
 
-//filter cars by name
+//filter cars by values
+// get the value:
+function getSelectedRadioValue(name) {
+  const radios = document.querySelectorAll(`input[name="${name}"]`);
+  for (const radio of radios) {
+    if (radio.checked) {
+      return radio.value;
+    }
+  }
+  return null;
+}
+
+// actual car filter
 function filterCars(searchTerm) {
   clearAll();
 
+  const filterCriteria = getSelectedRadioValue("inlineRadioOptions");
   joinedCars = [...carsForRental, ...carsForSale];
 
-  const filteredCars = [];
-
-  for (let i = 0; i < joinedCars.length; i++) {
-    const car = joinedCars[i];
-    const carName = car.Name.toLowerCase();
-
-    if (carName.includes(searchTerm)) {
-      filteredCars.push(car);
-    }
+  if (!filterCriteria) {
+    drawCars(joinedCars);
+    return;
   }
+
+  const filteredCars = joinedCars.filter((car) => {
+    const carValue = car[filterCriteria];
+    return (
+      carValue &&
+      String(carValue).toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
 
   drawCars(filteredCars);
 }
