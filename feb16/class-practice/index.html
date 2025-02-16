@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>dom hm</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row d-flex align-content-center justify-content-center gap-2">
+            <h1>Welcome To Tomer's Store!</h1>
+            <button id="loadProductsButton" style="max-width: fit-content; font-size: 1.5em;"
+                class="btn btn-outline-success ps-4 pe-4 pt-2 pb-2 font">load
+                products</button>
+            <button id="rentalCarsButton" style="max-width: fit-content; font-size: 1.5em;"
+                class="btn btn-outline-primary ps-4 pe-4 pt-2 pb-2 font">load rental
+                cars</button>
+            <button id="saleCarsButton" style="max-width: fit-content; font-size: 1.5em;"
+                class="btn btn-outline-warning ps-4 pe-4 pt-2 pb-2 font">load for cars
+                sale</button>
+            <button id="allCarsButton" style="max-width: fit-content; font-size: 1.5em;"
+                class="btn btn-outline-info ps-4 pe-4 pt-2 pb-2 font">load all
+                cars!</button>
+            <button style="max-width: fit-content; font-size: 1.5em;" class="btn btn-danger ps-4 pe-4 pt-2 pb-2 font"
+                onclick="clearAll()">clear
+                all</button>
+            <input type="text" id="productSearch" placeholder="Search for products..."
+                style="max-width: 300px; font-size: 1.5em; border: 0.15rem solid black"
+                class="rounded-2 p-1 text-primary-emphasis">
+        </div>
+
+        <div class="row d-flex align-content-center justify-content-center gap-2 mt-2">
+            <input type="text" id="carSearch" placeholder="Search cars by values..."
+                style="max-width: 300px; font-size: 1.5em; border: 0.15rem solid darkslategray"
+                class="rounded-2 p-1 text-primary-emphasis">
+        </div>
+
+        <div class="row d-flex align-content-center justify-content-center gap-2 mt-2">
+            <div class="radios">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="Name">
+                    <label class="form-check-label" for="inlineRadio1">Name</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                        value="Horsepower">
+                    <label class="form-check-label" for="inlineRadio2">Horsepower</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                        value="Acceleration">
+                    <label class="form-check-label" for="inlineRadio2">Acceleration</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4"
+                        value="Cylinders">
+                    <label class="form-check-label" for="inlineRadio2">Cylinders</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5"
+                        value="Weight_in_lbs">
+                    <label class="form-check-label" for="inlineRadio2">Weight_in_lbs</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row d-flex align-content-center justify-content-center gap-2 mt-2">
+            <form id="newCarForm">
+                <div class="mb-3">
+                    <label for="carName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="carName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="carHorsepower" class="form-label">Horsepower</label>
+                    <input type="number" class="form-control" id="carHorsepower" required>
+                </div>
+                <div class="mb-3">
+                    <label for="carMPG" class="form-label">Miles per Gallon</label>
+                    <input type="number" class="form-control" id="carMPG">
+                </div>
+                <div class="mb-3">
+                    <label for="carCylinders" class="form-label">Cylinders</label>
+                    <input type="number" class="form-control" id="carCylinders" required>
+                </div>
+                <div class="mb-3">
+                    <label for="carDisplacement" class="form-label">Displacement</label>
+                    <input type="number" class="form-control" id="carDisplacement">
+                </div>
+                <div class="mb-3">
+                    <label for="carWeight" class="form-label">Weight (lbs)</label>
+                    <input type="number" class="form-control" id="carWeight" required>
+                </div>
+                <div class="mb-3">
+                    <label for="carAcceleration" class="form-label">Acceleration</label>
+                    <input type="number" class="form-control" id="carAcceleration" required>
+                </div>
+                <div class="mb-3">
+                    <label for="carYear" class="form-label">Year</label>
+                    <input type="date" class="form-control" id="carYear" required>
+                </div>
+                <div class="mb-3">
+                    <label for="carOrigin" class="form-label">Origin</label>
+                    <select class="form-select" id="carOrigin">
+                        <option value="USA">USA</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Japan">Japan</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Car</button>
+            </form>
+        </div>
+
+        <div id="master-container" class="container">
+
+
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="cars.js"></script>
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
