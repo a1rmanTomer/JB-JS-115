@@ -73,9 +73,6 @@ document
     this.reset();
   });
 
-// Reset the form (optional)
-this.reset();
-
 // all of 1.1-1.3 functions:
 // get card element - cars
 function getCarCard(element) {
@@ -197,10 +194,24 @@ function filterProducts(searchTerm) {
 
 //filter cars by values
 // get the value:
+
+function loadPrevRadio() {
+  const localStorageSelectedRadio = localStorage.getItem("checkedRadio");
+  if (localStorageSelectedRadio) {
+    const radioToCheck = document.getElementById(
+      `${localStorageSelectedRadio}`
+    );
+    radioToCheck.checked = true;
+  }
+}
+loadPrevRadio();
+
 function getSelectedRadioValue(name) {
   const radios = document.querySelectorAll(`input[name="${name}"]`);
   for (let i = 0; i < radios.length; i++) {
     if (radios[i].checked) {
+      // save to local storage the selected radio
+      localStorage.setItem("checkedRadio", `${radios[i].value}`);
       return radios[i].value;
     }
   }
