@@ -7,7 +7,7 @@ function getJokeCardHTML(jc) {
             <div class="flex flex-col h-full">
               <div class="flex justify-between items-start">
                 <div class="text-3xl font-bold">${jc.type}</div>
-                <div class="text-5xl">🌟</div>
+                <div class="text-3xl">🌟</div>
               </div>
               <div class="mt-4">
                 <p class="text-lg">

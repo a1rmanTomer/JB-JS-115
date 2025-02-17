@@ -12,17 +12,11 @@ const GLOBAL = {
   masterContainer: document.getElementById("master-container"),
 };
 
-// fetch it from LS
-let lsFav = JSON.parse(localStorage.getItem("favorites"));
-
-// def the workable fav arr
-let favorites = () => {
-  if (lsFav && lsFav.length > 0) {
-    return lsFav;
-  } else {
-    return [];
-  }
-};
+let favs = [];
+if (localStorage?.getItem("favJokes")) {
+  favs = JSON.parse(localStorage.getItem("favJokes"));
+} else {
+}
 
 // draw a jokes array
 function drawJokes(arr) {
@@ -30,6 +24,19 @@ function drawJokes(arr) {
     const joke = arr[i];
     const card = document.createElement("div");
     card.innerHTML = getJokeCardHTML(joke);
+
+    const favButton = card.querySelector(`#fav-${joke.id}`);
+    favButton.addEventListener("click", function () {
+      favs.push(card);
+      localStorage.setItem("favJokes", JSON.stringify(favs));
+
+      favButton.style.color = "darkred";
+    });
+
+    const delButton = card.querySelector(`#del-${joke.id}`);
+    delButton.addEventListener("click", function () {
+      card.remove();
+    });
 
     GLOBAL.masterContainer.appendChild(card);
   }
