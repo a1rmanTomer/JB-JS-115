@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // TODO: add function validations
-// TODO: make add and remove "real" to the actual LS array
 
 // main runtime
 function init() {
@@ -53,7 +52,9 @@ function drawJokes(arr) {
 
     const delButton = card.querySelector(`#del-${joke.id}`);
     delButton.addEventListener("click", function () {
-      card.remove();
+      arr.splice(i, 1);
+      drawJokes(arr);
+      localStorage.setItem("favJokes", JSON.stringify(arr));
     });
 
     GLOBAL.masterContainer.appendChild(card);
