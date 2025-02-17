@@ -44,7 +44,7 @@ function getJokeCardHTML(arg) {
               </p>
             </div>
             <div class="flex justify-between items-center mt-auto">
-              <button id="${arg.id}"
+              <button id="${arg.id}
                 class="px-4 py-2 bg-white text-purple-600 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">
                 Favorite
               </button>
@@ -66,11 +66,4 @@ function drawJokes(arr) {
 
     MASTER.masterContainer.appendChild(card);
   }
-}
-
-// add specific cards to the favorites
-function addToFavorites() {
-  const jokeId = arg.id;
-
-  MASTER.favorites.push(jokeId);
 }
