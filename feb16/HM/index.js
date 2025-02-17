@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   init();
 });
 
-// TODO: add function validations
+const test = [];
 
 // main runtime
 function init() {
@@ -37,6 +37,7 @@ function clearAll() {
 
 function drawJokes(arr) {
   clearAll();
+
   for (let i = 0; i < arr.length; i++) {
     const joke = arr[i];
     const card = document.createElement("div");
@@ -46,8 +47,6 @@ function drawJokes(arr) {
     favButton.addEventListener("click", function () {
       favs.push(joke);
       localStorage.setItem("favJokes", JSON.stringify(favs));
-
-      favButton.style.color = "darkred";
     });
 
     const delButton = card.querySelector(`#del-${joke.id}`);
