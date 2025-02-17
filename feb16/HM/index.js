@@ -4,7 +4,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // main runtime
 function init() {
-  drawJokes(jokes);
+  if (typeof jokes !== "undefined") {
+    drawJokes(jokes);
+  } else {
+    // the favorites page loop
+    let favPageArr = JSON.parse(localStorage.getItem("favJokes"));
+
+    if (favPageArr.length > 0) {
+      drawJokes(favPageArr);
+    } else {
+      return;
+    }
+  }
 }
 
 // global key defs
@@ -23,6 +34,7 @@ function clearAll() {
 }
 
 function drawJokes(arr) {
+  clearAll();
   for (let i = 0; i < arr.length; i++) {
     const joke = arr[i];
     const card = document.createElement("div");
@@ -30,7 +42,7 @@ function drawJokes(arr) {
 
     const favButton = card.querySelector(`#fav-${joke.id}`);
     favButton.addEventListener("click", function () {
-      favs.push(card);
+      favs.push(joke);
       localStorage.setItem("favJokes", JSON.stringify(favs));
 
       favButton.style.color = "darkred";

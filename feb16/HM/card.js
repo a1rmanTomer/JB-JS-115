@@ -29,11 +29,11 @@ function getJokeCardHTML(jc) {
                 </p>
               </div>
               <div class="flex justify-between items-center mt-auto">
-                <button id="fav-${jc.id}" value="${jc.id}"
+                <button id="fav-${jc.id}"
                   class="px-4 py-2 bg-white text-purple-600 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">
                   Favorite
                 </button>
-                <button id="del-${jc.id}" value="${jc.id}"
+                <button id="del-${jc.id}"
                   class="px-4 py-2 bg-white text-red-600 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">
                   Delete
                 </button>
