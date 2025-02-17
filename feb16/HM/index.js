@@ -18,7 +18,6 @@ if (localStorage?.getItem("favJokes")) {
 } else {
 }
 
-// draw a jokes array
 function drawJokes(arr) {
   for (let i = 0; i < arr.length; i++) {
     const joke = arr[i];
