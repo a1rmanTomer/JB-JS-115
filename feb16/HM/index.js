@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
   init();
 });
 
+// TODO: add function validations
+// TODO: make add and remove "real" to the actual LS array
+
 // main runtime
 function init() {
   if (typeof jokes !== "undefined") {
