@@ -18,6 +18,10 @@ if (localStorage?.getItem("favJokes")) {
 } else {
 }
 
+function clearAll() {
+  GLOBAL.masterContainer.innerHTML = "";
+}
+
 function drawJokes(arr) {
   for (let i = 0; i < arr.length; i++) {
     const joke = arr[i];

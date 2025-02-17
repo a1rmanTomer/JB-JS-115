@@ -11,6 +11,22 @@ body {
   font-family: "Poppins", "Roboto", sans-serif;
 }
 
-#mainHeader {
+#headerCon,
+header button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  gap: 1rem;
+}
+
+header h1 {
   font-size: 4rem;
+  text-align: center;
+  justify-content: center;
+  text-justify: center;
+}
+
+#master-container {
+  min-height: 75dvh;
 }

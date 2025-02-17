@@ -6,12 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jokes Bar</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body class="bg-gray-900 text-white font-sans">
     <header class="bg-gradient-to-r from-blue-500 to-purple-600 text-center py-6 shadow-lg">
-        <h1 class="text-4xl font-extrabold tracking-wider">Welcome to the Jokes Bar!</h1>
+        <div id="headerCon" class="flex flex-row align-content-center justify-content-center">
+            <h1 class="text-4xl font-extrabold tracking-wider text-center">Welcome to the Jokes Bar!</h1>
+            <button
+                class="p-2 text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg shadow-lg hover:scale-105 duration-200 hover:drop-shadow-2xl hover:shadow-[#7dd3fc] hover:cursor-pointer">
+                Favorites <i class='bx bx-heart'></i>
+            </button>
+        </div>
     </header>
 
     <div id="master-container"
