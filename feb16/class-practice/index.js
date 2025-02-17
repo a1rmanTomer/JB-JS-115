@@ -29,7 +29,7 @@ allProductsButton.addEventListener("click", function () {
 
 const productSearchBox = document.getElementById("productSearch");
 productSearchBox.addEventListener("keyup", function () {
-  const searchTerm = productSearchBox.value.toLowerCase();
+  let searchTerm = productSearchBox.value.toLowerCase();
   filterProducts(searchTerm);
 });
 
@@ -37,6 +37,17 @@ const carSearchBox = document.getElementById("carSearch");
 carSearchBox.addEventListener("keyup", function () {
   const searchTerm = carSearchBox.value.toLowerCase();
   filterCars(searchTerm);
+});
+carSearchBox.addEventListener("input", function () {
+  const searchTerm = this.value; // Now searchTerm is local and correct
+  localStorage.setItem("carSearchTerm", searchTerm);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const carSavedTerm = localStorage.getItem("carSearchTerm");
+  if (carSavedTerm) {
+    carSearchBox.value = carSavedTerm;
+  }
 });
 
 // the form logic:
