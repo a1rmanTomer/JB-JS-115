@@ -47,8 +47,13 @@ function drawJokes(arr) {
 
     const favButton = card.querySelector(`#fav-${joke.id}`);
     favButton.addEventListener("click", function () {
+      favButton.style.color = "red";
       favs.push(joke);
       localStorage.setItem("favJokes", JSON.stringify(favs));
+
+      const newArr = arr;
+      newArr.splice(i, 1);
+      drawJokes(newArr);
     });
 
     const delButton = card.querySelector(`#del-${joke.id}`);
