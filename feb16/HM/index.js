@@ -38,6 +38,8 @@ function clearAll() {
 function drawJokes(arr) {
   clearAll();
 
+  if (!Array.isArray(arr)) return;
+
   for (let i = 0; i < arr.length; i++) {
     const joke = arr[i];
     const card = document.createElement("div");
