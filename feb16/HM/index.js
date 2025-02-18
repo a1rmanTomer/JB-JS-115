@@ -60,7 +60,6 @@ function drawJokes(arr) {
     delButton.addEventListener("click", function () {
       arr.splice(i, 1);
       drawJokes(arr);
-      localStorage.setItem("favJokes", JSON.stringify(arr));
     });
 
     GLOBAL.masterContainer.appendChild(card);
