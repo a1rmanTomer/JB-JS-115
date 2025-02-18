@@ -28,7 +28,6 @@ const GLOBAL = {
 let favs = [];
 if (localStorage?.getItem("favJokes")) {
   favs = JSON.parse(localStorage.getItem("favJokes"));
-} else {
 }
 
 function clearAll() {
@@ -60,6 +59,10 @@ function drawJokes(arr) {
     delButton.addEventListener("click", function () {
       arr.splice(i, 1);
       drawJokes(arr);
+      const strFavs = JSON.stringify(localStorage.getItem("favJokes"));
+      if (strFavs.includes(`${joke.id}`)) {
+        localStorage.setItem("favJokes", JSON.stringify(arr));
+      }
     });
 
     GLOBAL.masterContainer.appendChild(card);
