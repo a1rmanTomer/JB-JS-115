@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   init();
 });
 
-const test = [];
-
 // main runtime
 function init() {
   if (typeof jokes !== "undefined") {
