@@ -44,7 +44,14 @@ function drawJokes(arr) {
 
     const favButton = card.querySelector(`#fav-${joke.id}`);
     favButton.addEventListener("click", function () {
-      if (favs.some((item) => item.id === joke.id)) {
+      let isDuplicate = false;
+      favs.forEach((item) => {
+        if (item.id === joke.id) {
+          isDuplicate = true;
+        }
+      });
+
+      if (isDuplicate) {
         Swal.fire({
           icon: "error",
           title: "Oops...",
