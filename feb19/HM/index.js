@@ -5,12 +5,14 @@ document.addEventListener("DOMContentLoaded", function () {
 // main runtime
 function init() {
   if (typeof jokes !== "undefined") {
+    drawStatistics(jokes);
     drawJokes(jokes);
   } else {
     // the favorites page loop
     let favPageArr = JSON.parse(localStorage.getItem("favJokes"));
 
     if (favPageArr.length > 0) {
+      drawStatistics(favPageArr);
       drawJokes(favPageArr);
     } else {
       return;
@@ -51,24 +53,26 @@ function drawJokes(arr) {
         }
       });
 
-      if (isDuplicate) {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "This joke is already in the favorites!",
-        });
-      } else {
-        favs.push(joke);
-        localStorage.setItem("favJokes", JSON.stringify(favs));
+      try {
+        if (isDuplicate) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "This joke is already in the favorites!",
+          });
+        } else {
+          favs.push(joke);
+          localStorage.setItem("favJokes", JSON.stringify(favs));
 
-        const newArr = arr;
-        newArr.splice(i, 1);
-        // drawJokes(newArr);
-        Swal.fire({
-          title: "Added to favorites!",
-          icon: "success",
-        });
-      }
+          const newArr = arr;
+          newArr.splice(i, 1);
+          // drawJokes(newArr);
+          Swal.fire({
+            title: "Added to favorites!",
+            icon: "success",
+          });
+        }
+      } catch (error) {}
     });
 
     const delButton = card.querySelector(`#del-${joke.id}`);
@@ -76,15 +80,30 @@ function drawJokes(arr) {
       arr.splice(i, 1);
       drawJokes(arr);
       const strFavs = JSON.stringify(localStorage.getItem("favJokes"));
-      if (strFavs.includes(`${joke.id}`)) {
-        localStorage.setItem("favJokes", JSON.stringify(arr));
-      }
-      Swal.fire({
-        title: "Joke removed successfully!",
-        icon: "success",
-      });
+      try {
+        if (strFavs.includes(`${joke.id}`)) {
+          localStorage.setItem("favJokes", JSON.stringify(arr));
+        }
+        Swal.fire({
+          title: "Joke removed successfully!",
+          icon: "success",
+        });
+      } catch (error) {}
+      drawStatistics(arr);
     });
 
     GLOBAL.masterContainer.appendChild(card);
   }
+}
+
+function drawStatistics(arr) {
+  statsFilter(arr);
+
+  const container = document.getElementById("master-container");
+
+  const row = document.createElement("div");
+  row.className = "w-full";
+
+  // TODO: stats html template
+  row.innerHTML = getStatsHTML(arr);
 }
