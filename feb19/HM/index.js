@@ -102,8 +102,10 @@ function drawStatistics(arr) {
   const container = document.getElementById("master-container");
 
   const row = document.createElement("div");
-  row.className = "w-full";
+  row.className = "w-full bg-gray-100 rounded-lg p-6 shadow-md";
 
   // TODO: stats html template
   row.innerHTML = getStatsHTML(arr);
+
+  container.appendChild(row);
 }
