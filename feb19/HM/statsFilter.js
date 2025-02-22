@@ -4,6 +4,9 @@ function statsFilter(arr) {
   let typeCounts = [];
   let typeFrequency = {};
 
+  // total count
+  const totalJokes = arr.length;
+
   arr.forEach((joke) => {
     const type = joke.type;
     typeCounts.push(type);
@@ -18,43 +21,34 @@ function statsFilter(arr) {
   let types = Object.keys(typeFrequency);
   // display the types
 
-  // total count
-  const totalJokes = arr.length;
-
   // need to draw it
   console.log(totalJokes);
-  // console.log(categories);
-  // console.log(typeCounts);
-  //   need to loop through the keys and add the values and append all together to the html
+  console.log(categories);
   console.log(typeFrequency);
-  console.log(types);
 
-  // drawStatistics(arr);
+  localStorage.setItem("totalJokes", JSON.stringify(totalJokes));
+  localStorage.setItem("categories", JSON.stringify(categories));
+  localStorage.setItem("typeFrequency", JSON.stringify(typeFrequency));
 }
 
-// function drawStatistics(arr) {
-//   const container = document.getElementById("master-container");
+function drawStats(arr) {
+  statsFilter(arr);
 
-//   const row = document.createElement("div");
-//   row.className = "w-full bg-gray-100 rounded-lg p-6 shadow-md";
+  const tjokes = JSON.parse(localStorage.getItem("totalJokes"));
+  const tCategories = JSON.parse(localStorage.getItem("categories"));
+  const tFrequency = JSON.parse(localStorage.getItem("typeFrequency"));
 
-//   // TODO: stats html template
-//   row.innerHTML = getStatsHTML(arr);
+  const container = GLOBAL.masterContainer;
 
-//   container.appendChild(row);
-// }
+  const statsDiv = document.createElement("div");
+  statsDiv.className = "flex align-center justify-center";
+  statsDiv.innerHTML = `
+    <div>
+      <h1>Total jokes: ${tjokes}</h1>
+      <h1>Categories: ${tCategories}</h1>
+      <h1>Frequency: ${JSON.stringify(tFrequency)}</h1>
+    </div>
+  `;
 
-// function getStatsHTML(totalJokes, types) {
-//   return `
-//     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-//         <div>
-//             <p class="font-bold text-lg text-gray-800 mb-2">Total Jokes: <span id="total-jokes" class="text-blue-500">${totalJokes}</span></p>
-//         </div>
-//         <div>
-//             <h3 class="font-bold text-lg text-gray-800 mb-2">Joke Categories</h3>
-//             <ul id="joke-categories" class="list-disc pl-5 text-gray-700">
-//             </ul>
-//         </div>
-//     </div>
-//     `;
-// }
+  container.appendChild(statsDiv);
+}
