@@ -38,7 +38,7 @@ function drawStats(arr) {
   const tCategories = JSON.parse(localStorage.getItem("categories"));
   const tFrequency = JSON.parse(localStorage.getItem("typeFrequency"));
 
-  const container = GLOBAL.masterStats;
+  const statsCon = GLOBAL.masterStats;
 
   const statsDiv = document.createElement("div");
   statsDiv.className = "flex align-center justify-center";
@@ -57,5 +57,5 @@ function drawStats(arr) {
     </div>
     `;
 
-  container.appendChild(statsDiv);
+  statsCon.appendChild(statsDiv);
 }

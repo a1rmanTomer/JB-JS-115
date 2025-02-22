@@ -5,14 +5,18 @@ document.addEventListener("DOMContentLoaded", function () {
 // main runtime
 function init() {
   if (typeof jokes !== "undefined") {
-    drawStats(jokes);
+    try {
+      drawStats(jokes);
+    } catch (error) {}
     drawJokes(jokes);
   } else {
     // the favorites page loop
     let favPageArr = JSON.parse(localStorage.getItem("favJokes"));
 
     if (favPageArr.length > 0) {
-      drawStats(favPageArr);
+      try {
+        drawStats(favPageArr);
+      } catch (error) {}
       drawJokes(favPageArr);
     } else {
       return;
