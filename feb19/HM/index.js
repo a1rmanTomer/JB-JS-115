@@ -100,7 +100,6 @@ function drawJokes(arr) {
           icon: "success",
         });
       } catch (error) {}
-      statsFilter(arr);
     });
 
     GLOBAL.masterContainer.appendChild(card);
