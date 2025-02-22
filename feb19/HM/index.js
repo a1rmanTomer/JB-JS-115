@@ -89,7 +89,7 @@ function drawJokes(arr) {
           icon: "success",
         });
       } catch (error) {}
-      drawStatistics(arr);
+      statsFilter(arr);
     });
 
     GLOBAL.masterContainer.appendChild(card);
