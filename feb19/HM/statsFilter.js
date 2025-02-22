@@ -41,14 +41,19 @@ function drawStats(arr) {
   const container = GLOBAL.masterStats;
 
   const statsDiv = document.createElement("div");
-  statsDiv.className = "flex align-center justify-center bg-gray-800";
+  statsDiv.className = "flex align-center justify-center";
   statsDiv.innerHTML = `
-    <div>
-      <h1 class="text-2xl font-bold mb-2">Total jokes: ${tjokes}</h1>
-      <h1 class="text-xl font-semibold mb-2">Categories: ${tCategories.join(
+    <div class="bg-gray-700 p-4 rounded-lg shadow-md text-white max-w-7xl mx-auto mt-2">
+      <h1 class="text-2xl font-bold mb-2 text-yellow-400">Total jokes: ${tjokes}</h1>
+      <p class="text-lg mb-1">Categories: <span class="font-semibold">${tCategories.join(
         ", "
-      )}</h1>
-      <h1 class="text-lg">Types: ${JSON.stringify(tFrequency)}</h1>
+      )}</span></p>
+      <p class="text-lg">Types: ${Object.entries(tFrequency)
+        .map(
+          ([key, value]) =>
+            `<span class="font-semibold">${key}</span>: ${value}`
+        )
+        .join(", ")}</p>
     </div>
     `;
 
