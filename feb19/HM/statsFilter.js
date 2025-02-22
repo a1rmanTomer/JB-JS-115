@@ -28,19 +28,33 @@ function statsFilter(arr) {
   //   need to loop through the keys and add the values and append all together to the html
   console.log(typeFrequency);
   console.log(types);
+
+  // drawStatistics(arr);
 }
 
-function getStatsHTML(arr) {
-  return `
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-            <p class="font-bold text-lg text-gray-800 mb-2">Total Jokes: <span id="total-jokes" class="text-blue-500">0</span></p>
-        </div>
-        <div>
-            <h3 class="font-bold text-lg text-gray-800 mb-2">Joke Categories</h3>
-            <ul id="joke-categories" class="list-disc pl-5 text-gray-700">
-            </ul>
-        </div>
-    </div>
-    `;
-}
+// function drawStatistics(arr) {
+//   const container = document.getElementById("master-container");
+
+//   const row = document.createElement("div");
+//   row.className = "w-full bg-gray-100 rounded-lg p-6 shadow-md";
+
+//   // TODO: stats html template
+//   row.innerHTML = getStatsHTML(arr);
+
+//   container.appendChild(row);
+// }
+
+// function getStatsHTML(totalJokes, types) {
+//   return `
+//     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+//         <div>
+//             <p class="font-bold text-lg text-gray-800 mb-2">Total Jokes: <span id="total-jokes" class="text-blue-500">${totalJokes}</span></p>
+//         </div>
+//         <div>
+//             <h3 class="font-bold text-lg text-gray-800 mb-2">Joke Categories</h3>
+//             <ul id="joke-categories" class="list-disc pl-5 text-gray-700">
+//             </ul>
+//         </div>
+//     </div>
+//     `;
+// }

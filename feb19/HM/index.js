@@ -5,14 +5,14 @@ document.addEventListener("DOMContentLoaded", function () {
 // main runtime
 function init() {
   if (typeof jokes !== "undefined") {
-    drawStatistics(jokes);
+    statsFilter(jokes);
     drawJokes(jokes);
   } else {
     // the favorites page loop
     let favPageArr = JSON.parse(localStorage.getItem("favJokes"));
 
     if (favPageArr.length > 0) {
-      drawStatistics(favPageArr);
+      statsFilter(favPageArr);
       drawJokes(favPageArr);
     } else {
       return;
@@ -94,18 +94,4 @@ function drawJokes(arr) {
 
     GLOBAL.masterContainer.appendChild(card);
   }
-}
-
-function drawStatistics(arr) {
-  statsFilter(arr);
-
-  const container = document.getElementById("master-container");
-
-  const row = document.createElement("div");
-  row.className = "w-full bg-gray-100 rounded-lg p-6 shadow-md";
-
-  // TODO: stats html template
-  row.innerHTML = getStatsHTML(arr);
-
-  container.appendChild(row);
 }
