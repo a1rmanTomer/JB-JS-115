@@ -23,6 +23,7 @@ function init() {
 // global key defs
 const GLOBAL = {
   masterContainer: document.getElementById("master-container"),
+  masterStats: document.getElementById("master-stats"),
 };
 
 let favs = [];
@@ -30,12 +31,16 @@ if (localStorage?.getItem("favJokes")) {
   favs = JSON.parse(localStorage.getItem("favJokes"));
 }
 
-function clearAll() {
+function clearJokes() {
   GLOBAL.masterContainer.innerHTML = "";
 }
 
+function clearStats() {
+  GLOBAL.masterStats.innerHTML = "";
+}
+
 function drawJokes(arr) {
-  clearAll();
+  clearJokes();
 
   if (!Array.isArray(arr)) return;
 
@@ -84,6 +89,8 @@ function drawJokes(arr) {
         if (strFavs.includes(`${joke.id}`)) {
           localStorage.setItem("favJokes", JSON.stringify(arr));
         }
+        clearStats();
+        drawStats(arr);
         Swal.fire({
           title: "Joke removed successfully!",
           icon: "success",

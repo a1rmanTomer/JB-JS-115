@@ -38,17 +38,19 @@ function drawStats(arr) {
   const tCategories = JSON.parse(localStorage.getItem("categories"));
   const tFrequency = JSON.parse(localStorage.getItem("typeFrequency"));
 
-  const container = GLOBAL.masterContainer;
+  const container = GLOBAL.masterStats;
 
   const statsDiv = document.createElement("div");
-  statsDiv.className = "flex align-center justify-center";
+  statsDiv.className = "flex align-center justify-center bg-gray-800";
   statsDiv.innerHTML = `
     <div>
-      <h1>Total jokes: ${tjokes}</h1>
-      <h1>Categories: ${tCategories}</h1>
-      <h1>Frequency: ${JSON.stringify(tFrequency)}</h1>
+      <h1 class="text-2xl font-bold mb-2">Total jokes: ${tjokes}</h1>
+      <h1 class="text-xl font-semibold mb-2">Categories: ${tCategories.join(
+        ", "
+      )}</h1>
+      <h1 class="text-lg">Types: ${JSON.stringify(tFrequency)}</h1>
     </div>
-  `;
+    `;
 
   container.appendChild(statsDiv);
 }
