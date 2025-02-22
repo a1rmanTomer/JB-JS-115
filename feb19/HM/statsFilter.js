@@ -19,9 +19,7 @@ function statsFilter(arr) {
     typeFrequency[joke.type] = (typeFrequency[joke.type] || 0) + 1;
   });
   let types = Object.keys(typeFrequency);
-  // display the types
 
-  // need to draw it
   console.log(totalJokes);
   console.log(categories);
   console.log(typeFrequency);
