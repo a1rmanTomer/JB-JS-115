@@ -35,6 +35,8 @@ if (localStorage?.getItem("favJokes")) {
   favs = JSON.parse(localStorage.getItem("favJokes"));
 }
 
+let tempSelected = [];
+
 function clearJokes() {
   GLOBAL.masterContainer.innerHTML = "";
 }
@@ -82,6 +84,12 @@ function drawJokes(arr) {
           });
         }
       } catch (error) {}
+    });
+
+    const selectBox = card.querySelector(`#sel-${joke.id}`);
+    selectBox.addEventListener("checked", function () {
+      tempSelected.push(joke);
+      console.log(`Joke [${joke.id}] has been selected`);
     });
 
     const delButton = card.querySelector(`#del-${joke.id}`);
