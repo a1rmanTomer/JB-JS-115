@@ -28,6 +28,7 @@ function init() {
 const GLOBAL = {
   masterContainer: document.getElementById("master-container"),
   masterStats: document.getElementById("master-stats"),
+  favSelectedBtn: document.getElementById("add-selected-to-favorites"),
 };
 
 let favs = [];
@@ -36,6 +37,30 @@ if (localStorage?.getItem("favJokes")) {
 }
 
 let tempSelected = [];
+try {
+  GLOBAL.favSelectedBtn.addEventListener("click", function () {
+    let tempFavLs = JSON.parse(localStorage?.getItem("favJokes")) || [];
+    tempSelected.forEach((selJoke) => {
+      const currentFavLs = JSON.parse(localStorage.getItem("favJokes")) || [];
+      // checking if is already int favs
+      if (!currentFavLs.some((favJoke) => favJoke.id === selJoke.id)) {
+        tempFavLs.push(selJoke);
+        console.log(`Joke [${selJoke.id}] has been mas-added to favorites`);
+      } else {
+        console.log(
+          `Joke [${selJoke.id}] is already in the favorites so it wasn't added.`
+        );
+      }
+    });
+    localStorage.setItem("favJokes", JSON.stringify(tempFavLs));
+    tempSelected.splice(0, tempSelected.length);
+    drawJokes(jokes);
+    Swal.fire({
+      title: "Selected Jokes Have Been Added To Favorites!",
+      icon: "success",
+    });
+  });
+} catch (error) {}
 
 function clearJokes() {
   GLOBAL.masterContainer.innerHTML = "";
@@ -87,9 +112,11 @@ function drawJokes(arr) {
     });
 
     const selectBox = card.querySelector(`#sel-${joke.id}`);
-    selectBox.addEventListener("checked", function () {
-      tempSelected.push(joke);
-      console.log(`Joke [${joke.id}] has been selected`);
+    selectBox.addEventListener("click", function () {
+      if (!tempSelected.find((j) => j.id === joke.id)) {
+        tempSelected.push(joke);
+        console.log(`Joke [${joke.id}] has been selected`);
+      }
     });
 
     const delButton = card.querySelector(`#del-${joke.id}`);
