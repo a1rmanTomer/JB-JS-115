@@ -1,7 +1,7 @@
 function getMovieCardHTML(m) {
   const randImg = Math.floor(Math.random() * m.Images.length);
   return `
-    <div id="movie-${m.imdbID}" class="relative flex justify-between w-100 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md min-h-[700px]">
+    <div id="movie-${m.imdbID}" class="relative flex justify-between w-100 flex-col rounded-xl bg-gray-200 bg-clip-border text-gray-700 shadow-md min-h-[700px]">
         <div>
             <div
                 style="box-shadow: hsla(279 100% 31% / 0.6) 5px 10px 10px;" class="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600"

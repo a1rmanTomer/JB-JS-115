@@ -17,6 +17,13 @@ function drawCards(arr) {
     const movie = arr[i];
     const card = document.createElement("div");
     card.innerHTML = getMovieCardHTML(movie);
+
+    // favorite button
+    const favButton = card.querySelector(`#fav-${movie.imdbID}`);
+    favButton.addEventListener("click", function () {
+      addToFavorites(movie);
+    });
+
     container.appendChild(card);
   }
 }
