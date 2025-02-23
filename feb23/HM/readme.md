@@ -21,4 +21,4 @@ TODO:
 3. add statistics pie chart with the types and number of movies\series for example {movies: 5, series: 2}
 4. each movie has few images, support paging between the movies, button next/prev to switch between movies.
 <!-- this has a randompic as placeholder -->
-5. support adding movie to favorite, delete from favorite
+5. support adding movie to favorite [DONE], delete from favorite

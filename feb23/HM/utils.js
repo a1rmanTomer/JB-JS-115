@@ -28,3 +28,14 @@ function addToFavorites(element) {
     });
   }
 }
+
+function isInFavorites(element) {
+  const localFavLs = JSON.parse(localStorage?.getItem("favorites"));
+  const isFav = false;
+  localFavLs.forEach((lsFav) => {
+    if (lsFav === element) {
+      isFav = true;
+    }
+  });
+  return isFav;
+}
