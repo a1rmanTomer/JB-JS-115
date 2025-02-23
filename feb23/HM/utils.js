@@ -1,7 +1,16 @@
 function addToFavorites(element) {
   favs = JSON.parse(localStorage?.getItem("favorites")) || [];
 
-  if (!favs.includes(element)) {
+  let isDuplicate = false;
+
+  favs.forEach((fav) => {
+    const id = fav.imdbID;
+    if (id === element.imdbID) {
+      isDuplicate = true;
+    }
+  });
+
+  if (!isDuplicate) {
     favs.push(element);
     localStorage.setItem("favorites", JSON.stringify(favs));
     console.log(`Item [${element.imdbID}] was added to favorites`);
