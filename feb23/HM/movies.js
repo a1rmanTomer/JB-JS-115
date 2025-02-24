@@ -1,4 +1,4 @@
-const movies = [
+let movies = [
   {
     Title: "Avatar",
     Year: "2009",
