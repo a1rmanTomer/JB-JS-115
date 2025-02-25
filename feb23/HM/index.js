@@ -19,7 +19,23 @@ function init() {
 
 const GLOBALS = {
   masterContainer: document.getElementById("master-container"),
+  resetAllBtn: document.getElementById("resetMovies"),
+  pruneFavs: document.getElementById("pruneFavs"),
 };
+
+try {
+  GLOBALS.resetAllBtn.addEventListener("click", function () {
+    localStorage.removeItem("drawArray");
+    location.reload();
+  });
+} catch (error) {}
+
+try {
+  GLOBALS.pruneFavs.addEventListener("click", function () {
+    localStorage.removeItem("favorites");
+    location.reload();
+  });
+} catch (error) {}
 
 function drawCards(arr) {
   clearCards();
