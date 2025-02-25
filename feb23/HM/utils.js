@@ -18,7 +18,7 @@ function errorMsg(text) {
   });
 }
 
-function addToFavorites(element) {
+function addToFavorites(element, index) {
   favs = JSON.parse(localStorage?.getItem("favorites")) || [];
 
   let isDuplicate = false;
@@ -34,7 +34,8 @@ function addToFavorites(element) {
     favs.push(element);
     localStorage.setItem("favorites", JSON.stringify(favs));
     console.log(`Item [${element.imdbID}] was added to favorites.`);
-
+    deleteCard(index);
+    init();
     successMsg("Added successfully to favorites.");
   } else {
     errorMsg("This is already favored!");
@@ -68,6 +69,7 @@ function removeFromFavorites(element) {
     newFav.splice(foundIndex, 1);
     localStorage.setItem("favorites", JSON.stringify(newFav));
     console.log(`Item [${element.imdbID}] has been removed from favorites.`);
+    init();
     successMsg("Removed successfully from favorites!");
   } else {
     errorMsg("Isn't in the favorites...");

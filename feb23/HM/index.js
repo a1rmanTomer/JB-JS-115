@@ -3,10 +3,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function init() {
-  if (localStorage?.getItem("drawArray")) {
-    movies = JSON.parse(localStorage.getItem("drawArray"));
+  let favs = [];
+  if (typeof movies !== "undefined") {
+    if (localStorage?.getItem("drawArray")) {
+      movies = JSON.parse(localStorage.getItem("drawArray"));
+    }
+    drawCards(movies);
+  } else {
+    if (localStorage?.getItem("favorites")) {
+      favs = JSON.parse(localStorage.getItem("favorites")) || [];
+    }
+    drawCards(favs);
   }
-  drawCards(movies);
 }
 
 const GLOBALS = {
@@ -21,25 +29,35 @@ function drawCards(arr) {
   for (let i = 0; i < arr.length; i++) {
     const elem = arr[i];
     const card = document.createElement("div");
-    card.innerHTML = getCardHTML(elem);
+    if (typeof movies !== "undefined") {
+      card.innerHTML = getCardHTML(elem);
+    } else {
+      card.innerHTML = getFavCard(elem);
+    }
 
-    // favorite button
-    const favButton = card.querySelector(`#fav-${elem.imdbID}`);
-    favButton.addEventListener("click", function () {
-      addToFavorites(elem);
-    });
+    try {
+      // favorite button
+      const favButton = card.querySelector(`#fav-${elem.imdbID}`);
+      favButton.addEventListener("click", function () {
+        addToFavorites(elem, i);
+      });
+    } catch (error) {}
 
-    // remove favorite button
-    const favRemoveButton = card.querySelector(`#rem-${elem.imdbID}`);
-    favRemoveButton.addEventListener("click", function () {
-      removeFromFavorites(elem);
-    });
+    try {
+      // remove favorite button
+      const favRemoveButton = card.querySelector(`#rem-${elem.imdbID}`);
+      favRemoveButton.addEventListener("click", function () {
+        removeFromFavorites(elem);
+      });
+    } catch (error) {}
 
-    // delete button
-    const delButton = card.querySelector(`#del-${elem.imdbID}`);
-    delButton.addEventListener("click", function () {
-      deleteCard(i);
-    });
+    try {
+      // delete button
+      const delButton = card.querySelector(`#del-${elem.imdbID}`);
+      delButton.addEventListener("click", function () {
+        deleteCard(i);
+      });
+    } catch (error) {}
 
     container.appendChild(card);
   }
