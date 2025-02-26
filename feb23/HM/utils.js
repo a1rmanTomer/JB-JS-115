@@ -63,6 +63,11 @@ function removeFromFavorites(element) {
       foundIndex = i;
       break;
     }
+
+    if (chart) {
+      chart.destroy();
+    }
+    location.reload();
   }
 
   if (foundIndex !== -1) {
@@ -84,5 +89,5 @@ function deleteCard(index) {
 
   let moviesToDraw = JSON.parse(localStorage.getItem("drawArray"));
 
-  init();
+  location.reload();
 }

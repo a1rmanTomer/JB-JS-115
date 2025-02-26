@@ -9,12 +9,14 @@ function init() {
       movies = JSON.parse(localStorage.getItem("drawArray"));
     }
     getTypeStats(movies);
+    drawStats(movies);
     drawCards(movies);
   } else {
     if (localStorage?.getItem("favorites")) {
       favs = JSON.parse(localStorage.getItem("favorites")) || [];
     }
     getTypeStats(favs);
+    drawStats(favs);
     drawCards(favs);
   }
 }

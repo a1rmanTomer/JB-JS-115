@@ -10,33 +10,49 @@ function getTypeStats(arr) {
     }
   });
 
-  console.log(stats);
-
   return stats;
 }
 
-// let chart = null;
-// function drawStats(arr, target) {
-//   if (chart) {
-//     chart.destroy();
-//   }
+let chart = null;
+function drawStats(arr) {
+  const ctx = document.getElementById("statsChart").getContext("2d");
+  const stats = getTypeStats(arr);
+  console.log(stats);
 
-//   const ctx = document.getElementById(target);
+  let drawStats = [];
+  let labels = [];
 
-//   let data = getTypeStats(arr);
+  for (const property in stats) {
+    labels.push(property);
+    drawStats.push(stats[property]);
+  }
 
-//   chart = new Chart(ctx, {
-//     type: "pie",
-//     data: {
-//       labels: [...Object.keys(data)],
-//       datasets: [
-//         {
-//           label: "# of Votes",
-//           data: [...Object.values(data)],
-//           borderWidth: 1,
-//         },
-//       ],
-//     },
-//     options: {},
-//   });
-// }
+  if (chart) {
+    chart.destroy();
+  }
+  const statsChart = new Chart(ctx, {
+    type: "pie",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "# of Votes",
+          data: drawStats,
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+        },
+        title: {
+          display: true,
+          text: "Types",
+        },
+      },
+    },
+  });
+}
