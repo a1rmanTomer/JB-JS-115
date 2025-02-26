@@ -16,37 +16,27 @@ function getTypeStats(arr) {
 }
 
 // let chart = null;
-// function drawStats(arr, targetCanvas) {
-//   if (!targetCanvas) return;
-//   let labels = [];
-//   let data = [];
-//   for (const property in arr) {
-//     labels.push(property);
-//     data.push(arr[property]);
-//   }
-
-//   const ctx = document.getElementById("myChart");
+// function drawStats(arr, target) {
 //   if (chart) {
 //     chart.destroy();
 //   }
+
+//   const ctx = document.getElementById(target);
+
+//   let data = getTypeStats(arr);
+
 //   chart = new Chart(ctx, {
-//     type: "bar",
+//     type: "pie",
 //     data: {
-//       labels: labels,
+//       labels: [...Object.keys(data)],
 //       datasets: [
 //         {
-//           label: "Number of jokes",
-//           data: data,
-//           borderWidth: 5,
+//           label: "# of Votes",
+//           data: [...Object.values(data)],
+//           borderWidth: 1,
 //         },
 //       ],
 //     },
-//     options: {
-//       scales: {
-//         y: {
-//           beginAtZero: true,
-//         },
-//       },
-//     },
+//     options: {},
 //   });
 // }
