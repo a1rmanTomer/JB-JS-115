@@ -30,7 +30,7 @@ function drawStats(arr) {
   if (chart) {
     chart.destroy();
   }
-  const statsChart = new Chart(ctx, {
+  chart = new Chart(ctx, {
     type: "pie",
     data: {
       labels: labels,
