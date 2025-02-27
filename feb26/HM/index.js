@@ -54,4 +54,11 @@ class Piece {
 const board1 = new Board();
 board1.createBoard();
 
+// colors need refactor for inner arr.
+const white = new Piece("black", "pawn", 1);
+white.createPiece(board1);
+
+const black = new Piece("black", "pawn", 1);
+black.createPiece(board1);
+
 console.log(board1);
